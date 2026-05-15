@@ -273,18 +273,13 @@ matches.id  ---> deliveries.match_id
 
 ### Recommendations  
 
-#### 1. 🎯 Target High-Volume States  
-Focus marketing and resale efforts in states like **NY, OH, NC, VA**, which show high vehicle turnover and mileage demand.
+#### 1. Teams should prioritize players with consistently high strike rates and match-winning contributions across seasons.
 
-#### 2. 💼 Price Based on DAS  
-Use **Driver Assist System tiers** as a pricing lever.  
-> Full Self-Driving variants command significantly higher average prices (up to **$63.2K**).
+#### 2. Toss decisions should be optimized based on venue trends and historical chase/defend success rates.
 
-#### 3. 📉 Promote Lower EMI Models  
-**Model Y and Model 3** with lower EMIs may be ideal for entry-level EV buyers or fleet purchases.
+#### 3. Bowlers with low economy rates in death overs should be utilized more effectively in high-pressure situations.
 
-#### 4. 🔍 Expand Dataset for Model Y & Cybertruck  
-As newer models, their datasets will grow. Monitoring pricing trends can help forecast **depreciation** and **resale value**.
+#### 4. Teams should focus on boundary efficiency (4s and 6s) as it strongly impacts total score and win probability.
 
 ---
 
