@@ -263,12 +263,11 @@ matches.id  ---> deliveries.match_id
 ---
 
 ### Insights & Findings  
-1. **Model Y** is the most affordable option at ~$33.9K with the lowest EMI ($529.37).  
-2. **Model X** has the highest average price and EMI, making it the most premium used Tesla option.  
-3. **Model 3** is the most balanced in terms of price vs. mileage.  
-4. **Cybertruck** data suggests it's new to the market (lower mileage) but priced mid-range.  
-5. **States like NY, OH, NC, VA** appear across the top for mileage, suggesting high usage or resales.  
-6. **Accident-free rate** is high across all models, with **Model 3 and Y** being the safest (>90%).
+1. **Mumbai Indians and Chennai Super Kings are among the most successful IPL teams.
+2. **Winning the toss and choosing to field gives a higher success rate in some seasons.  
+3. **Virat Kohli, David Warner, and Suresh Raina are top consistent scorers.
+4. **Some venues heavily favor chasing teams. 
+
 
 ---
 
@@ -290,8 +289,7 @@ As newer models, their datasets will grow. Monitoring pricing trends can help fo
 ---
 
 ### Future Work
-* Integrate live market data (Tesla API, vehicle resale sites)
-* Include model year and battery degradation metrics
-* Predict resale value using regression models (Python + ML)
-* Build a web-based dashboard using Power BI Embedded or Streamlit
-* Analyze charging patterns and locations (if location data becomes available)
+* Predict Match Winner : Use Python + Machine Learning Algorithms.
+* Player Recommendation System : Recommend best batsman/bowler based on conditions.
+* Live IPL Dashboard : Connect Power BI with APIs.
+
