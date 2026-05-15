@@ -194,19 +194,56 @@ GROUP BY venue
 ORDER BY total_matches DESC;
 
 ``` 
+### Data Transformation  
+Using **Power Query** and **DAX**, the data was transformed to calculate:  
+- Total Runs
+```
+Total Runs = SUM(deliveries[total_runs])
 
+```
+- Total Matches
+```
+Total Matches = DISTINCTCOUNT(matches[id])
+
+```
+- Total Sixes
+```
+Total Sixes =
+CALCULATE(
+    COUNTROWS(deliveries),
+    deliveries[batsman_runs] = 6
+)
+
+```
+- Total Fours
+```
+Total Fours =
+CALCULATE(
+    COUNTROWS(deliveries),
+    deliveries[batsman_runs] = 4
+)
+
+```
+- Total Wickets
+```
+Total Wickets =
+COUNT(deliveries[player_dismissed])
+
+```
+
+- Win Percentage
+```
+Win % =
+DIVIDE(
+    COUNT(matches[winner]),
+    DISTINCTCOUNT(matches[id])
+) * 100
+
+```
 ---
 
 ### Power BI Dashboard  
-Each Tesla model has a dedicated dashboard featuring the following key visuals:
-- Average Price  
-- Median Odometer  
-- EMI  
-- % With/Without Accident  
-- Price by State  
-- Mileage by State  
-- Average Price by Driver Assist System (DAS)  
-- 3D Vehicle View (UI/UX enhancement)
+
 
 ![cyber truck dashboard](https://github.com/user-attachments/assets/56e1b3af-ebdb-4aeb-9ea8-b0e65f69ae5c)
 
