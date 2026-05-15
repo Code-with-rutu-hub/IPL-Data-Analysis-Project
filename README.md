@@ -104,14 +104,96 @@ SELECT COUNT(*) AS total_matches
 FROM matches;
 ```
 
-- Remove Duplicate Matches
+- Matches Won by Each Team
 ```
-SELECT id, COUNT(*)
+SELECT winner, COUNT(*) AS wins
 FROM matches
-GROUP BY id
-HAVING COUNT(*) > 1;
-``` 
+GROUP BY winner
+ORDER BY wins DESC;
 
+``` 
+- Top 10 Run Scorers
+```
+SELECT batsman,
+       SUM(batsman_runs) AS total_runs
+FROM deliveries
+GROUP BY batsman
+ORDER BY total_runs DESC
+LIMIT 10;
+
+```
+- Top Wicket Takers
+```
+SELECT bowler,
+       COUNT(player_dismissed) AS wickets
+FROM deliveries
+WHERE dismissal_kind NOT IN ('run out', 'retired hurt')
+GROUP BY bowler
+ORDER BY wickets DESC
+LIMIT 10;
+
+```
+- Highest Team Score
+```
+SELECT match_id,
+       batting_team,
+       SUM(total_runs) AS total_score
+FROM deliveries
+GROUP BY match_id, batting_team
+ORDER BY total_score DESC
+LIMIT 10;
+```
+- Toss Impact Analysis
+```
+SELECT toss_decision,
+       COUNT(*) AS matches,
+       SUM(CASE WHEN toss_winner = winner THEN 1 ELSE 0 END) AS toss_and_match_won
+FROM matches
+GROUP BY toss_decision;
+
+```
+- Most Player of the Match Awards
+```
+SELECT player_of_match,
+       COUNT(*) AS awards
+FROM matches
+GROUP BY player_of_match
+ORDER BY awards DESC
+LIMIT 10;
+
+```
+
+- Best Strike Rate Players
+```
+SELECT batsman,
+       SUM(batsman_runs) AS runs,
+       COUNT(ball) AS balls,
+       ROUND((SUM(batsman_runs) * 100.0 / COUNT(ball)),2) AS strike_rate
+FROM deliveries
+GROUP BY batsman
+HAVING runs > 1000
+ORDER BY strike_rate DESC;
+
+```
+- Economy Rate of Bowlers
+```
+SELECT bowler,
+       ROUND(SUM(total_runs) * 6.0 / COUNT(ball),2) AS economy
+FROM deliveries
+GROUP BY bowler
+HAVING COUNT(ball) > 300
+ORDER BY economy ASC;
+
+```
+- Venue-wise Match Count
+```
+SELECT venue,
+       COUNT(*) AS total_matches
+FROM matches
+GROUP BY venue
+ORDER BY total_matches DESC;
+
+``` 
 
 ---
 
