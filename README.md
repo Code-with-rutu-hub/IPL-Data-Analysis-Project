@@ -26,61 +26,61 @@ The goal is to extract insights into:
 CREATE DATABASE IPL_Project;
 USE IPL_Project;
 ```
-- Median mileage (odometer)
+- Create Matches Table
 ```
-MedianOdometer = 
-VAR selected = [SelectedModel]
-RETURN
-IF(
-    selected = "ALL",
-    MEDIAN('Tesla Stock Dataset'[odometer]),
-    CALCULATE(
-        MEDIAN('Tesla Stock Dataset'[odometer]),
-        'Tesla Stock Dataset'[model] = selected
-    )
-)
-
+CREATE TABLE matches (
+    id INT PRIMARY KEY,
+    season VARCHAR(20),
+    city VARCHAR(100),
+    date DATE,
+    team1 VARCHAR(100),
+    team2 VARCHAR(100),
+    toss_winner VARCHAR(100),
+    toss_decision VARCHAR(20),
+    result VARCHAR(20),
+    dl_applied INT,
+    winner VARCHAR(100),
+    win_by_runs INT,
+    win_by_wickets INT,
+    player_of_match VARCHAR(100),
+    venue VARCHAR(255),
+    umpire1 VARCHAR(100),
+    umpire2 VARCHAR(100),
+    umpire3 VARCHAR(100)
+);
 ```
-- EMI estimates
+- Create Deliveries Table
 ```
-AverageEMI = 
-VAR selected = [SelectedModel]
-RETURN
-IF(
-    selected = "ALL",
-    AVERAGE('Tesla Stock Dataset'[EMI]),
-    CALCULATE(
-        AVERAGE('Tesla Stock Dataset'[EMI]),
-        'Tesla Stock Dataset'[model] = selected
-    )
-)
+CREATE TABLE deliveries (
+    match_id INT,
+    inning INT,
+    batting_team VARCHAR(100),
+    bowling_team VARCHAR(100),
+    over_no INT,
+    ball INT,
+    batsman VARCHAR(100),
+    non_striker VARCHAR(100),
+    bowler VARCHAR(100),
+    is_super_over INT,
+    wide_runs INT,
+    bye_runs INT,
+    legbye_runs INT,
+    noball_runs INT,
+    penalty_runs INT,
+    batsman_runs INT,
+    extra_runs INT,
+    total_runs INT,
+    player_dismissed VARCHAR(100),
+    dismissal_kind VARCHAR(100),
+    fielder VARCHAR(100)
+);
 ```
-- Accident percentage
+### Data Cleaning Queries
+- Check Null Values
 ```
-PercentWithAccident = 
-VAR selected = [SelectedModel]
-RETURN
-IF(
-    selected = "ALL",
-    DIVIDE(
-        CALCULATE(COUNTROWS('Tesla Stock Dataset'), 'Tesla Stock Dataset'[accident_history] <> "No Accidents"),
-        COUNTROWS('Tesla Stock Dataset'),
-        0
-    ),
-    DIVIDE(
-        CALCULATE(
-            COUNTROWS('Tesla Stock Dataset'),
-            'Tesla Stock Dataset'[model] = selected,
-            'Tesla Stock Dataset'[accident_history] <> "No Accidents"
-        ),
-        CALCULATE(
-            COUNTROWS('Tesla Stock Dataset'),
-            'Tesla Stock Dataset'[model] = selected
-        ),
-        0
-    )
-)
-
+SELECT *
+FROM matches
+WHERE winner IS NULL;
 ```
 - Percent With No Accident
 ```
