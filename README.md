@@ -82,34 +82,36 @@ SELECT *
 FROM matches
 WHERE winner IS NULL;
 ```
-- Percent With No Accident
+- Remove Duplicate Matches
 ```
-PercentNoAccident = 
-VAR selected = [SelectedModel]
-RETURN
-IF(
-    selected = "ALL",
-    DIVIDE(
-        CALCULATE(COUNTROWS('Tesla Stock Dataset'), 'Tesla Stock Dataset'[accident_history] = "No Accidents"),
-        COUNTROWS('Tesla Stock Dataset'),
-        0
-    ),
-    DIVIDE(
-        CALCULATE(
-            COUNTROWS('Tesla Stock Dataset'),
-            'Tesla Stock Dataset'[model] = selected,
-            'Tesla Stock Dataset'[accident_history] = "No Accidents"
-        ),
-        CALCULATE(
-            COUNTROWS('Tesla Stock Dataset'),
-            'Tesla Stock Dataset'[model] = selected
-        ),
-        0
-    )
-)
+SELECT id, COUNT(*)
+FROM matches
+GROUP BY id
+HAVING COUNT(*) > 1;
+```
+
+- Standardize Team Names
+```
+UPDATE matches
+SET team1 = 'Delhi Capitals'
+WHERE team1 = 'Delhi Daredevils';
+```
+
+### SQL Analysis Queries
+- Total Matches Played
+```
+SELECT COUNT(*) AS total_matches
+FROM matches;
+```
+
+- Remove Duplicate Matches
+```
+SELECT id, COUNT(*)
+FROM matches
+GROUP BY id
+HAVING COUNT(*) > 1;
 ``` 
 
-Visuals were color-coded by driver assist systems and filtered by model.
 
 ---
 
