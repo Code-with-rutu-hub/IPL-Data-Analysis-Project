@@ -1,5 +1,5 @@
 # IPL Match & Player Performance Analytics Dashboard
-Power BI +SQL Project | 5 Tesla Models | State-wise Sales Insights  
+Power BI +SQL Project 
 
 
 ---
