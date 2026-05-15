@@ -240,6 +240,15 @@ DIVIDE(
 ) * 100
 
 ```
+### Power BI Data Model
+- Create relationship:
+```
+matches.id  ---> deliveries.match_id
+
+```
+### Relationship Type:
+
+- One to Many
 ---
 
 ### Power BI Dashboard  
