@@ -254,15 +254,10 @@ matches.id  ---> deliveries.match_id
 ### Power BI Dashboard  
 
 
-![cyber truck dashboard](https://github.com/user-attachments/assets/56e1b3af-ebdb-4aeb-9ea8-b0e65f69ae5c)
+<img width="891" height="496" alt="image" src="https://github.com/user-attachments/assets/985f079c-98c0-4f48-b3e0-cbd4e8cc39e9" />
 
-![modep s](https://github.com/user-attachments/assets/a7a29b17-7f0d-4763-ad5b-c4731fad2908)
 
-![model 3 dashboard](https://github.com/user-attachments/assets/cbe5a9f2-7601-4adb-b063-d5eeb02bf45a)
 
-![model x dashboard](https://github.com/user-attachments/assets/f3409ee2-8347-4a86-92da-971011239a3c)
-
-![model y](https://github.com/user-attachments/assets/c7567f61-9a0a-4c38-b835-32f0261c7d48)
 
 
 ---
