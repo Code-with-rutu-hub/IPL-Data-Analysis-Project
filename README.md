@@ -7,8 +7,8 @@ Power BI +SQL Project | 5 Tesla Models | State-wise Sales Insights
 ### Project Overview  
 This project uses two IPL datasets:
 
-matches.csv
-deliveries.csv
+- matches.csv
+- deliveries.csv
 
 The goal is to extract insights into:
 - Team performance across IPL seasons 
@@ -16,70 +16,15 @@ The goal is to extract insights into:
 - Match-winning patterns and toss impact
 - Overall IPL trends using interactive visual analytics
 
-For the five most common Tesla models:
-- Model 3  
-- Model Y  
-- Model S  
-- Model X  
-- Cybertruck
 
 ---
 
-### Tools & Technologies  
-- Microsoft Power BI (for dashboard creation)  
-- Excel (data formatting & pre-processing)  
-- Power Query (ETL in Power BI)  
-- DAX (measures and KPIs)  
-- Adobe Illustrator / Figma (UI enhancement, optional)
+### SQL Database
 
----
-
-### Excel for Data Formatting & Pre-Processing  
-
-- Cleaned missing values and duplicates  
-- Formatted numeric fields (e.g., price, mileage, EMI)  
-- Standardized column names and categories  
-- Created calculated fields like EMI (if missing)  
-- Prepared structured layout for Power BI import  
-
-> Excel was used for quick and efficient pre-processing before loading data into Power BI.
-
-![yoo mee](https://github.com/user-attachments/assets/17746245-9132-4077-8da6-64941244dafc)
-
-
-
-### Dataset Breakdown  
-The dataset used for this analysis includes:
-- Tesla model name  
-- Average price (USD)  
-- Median odometer (miles)  
-- EMI (Estimated Monthly Installment)  
-- State of sale  
-- Accident history (% with or without)  
-- Driver Assist System type:
-  - Full Self-Driving (FSD)  
-  - Enhanced Autopilot  
-  - Standard Autopilot  
-
-Each vehicle record was filtered and grouped to compute KPIs across states.
-
----
-
-### Data Transformation  
-Using **Power Query** and **DAX**, the data was transformed to calculate:  
-- Average price per model/state
+- Create Database
 ```
-VAR selected = [SelectedModel]
-RETURN
-IF(
-    selected = "ALL",
-    AVERAGE('Tesla Stock Dataset'[price]),
-    CALCULATE(
-        AVERAGE('Tesla Stock Dataset'[price]),
-        'Tesla Stock Dataset'[model] = selected
-    )
-)
-
+CREATE DATABASE IPL_Project;
+USE IPL_Project;
 ```
 - Median mileage (odometer)
 ```
